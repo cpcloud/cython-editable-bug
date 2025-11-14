@@ -1,0 +1,15 @@
+[workspace]
+channels = ["conda-forge"]
+name = "editable-cython-bug"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = ">=3.14"
+setuptools = ">=80.9"
+cython = ">=3.2.1"
+pip = "*"
+gxx = "*"
+gcc = "*"

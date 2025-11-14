@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=80.9", "cython>=3.2.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deppkg"
+requires-python = ">=3.14"
+version = "0.0.0"
+
+[tool.setuptools]
+ext-modules = [{name = "deppkg.test", sources = ["./deppkg/test.pyx"]}]
+package-data.deppkg = ["./deppkg/test.pxd"]

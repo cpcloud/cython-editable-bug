@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=80.9", "cython>=3.2.1"]
+
+[project]
+name = "mainpkg"
+version = "0.0.0"
+requires-python = ">=3.14"
+dependencies = [
+    "deppkg",
+]
+
+[tool.setuptools]
+ext-modules = [{name = "mainpkg.test", sources = ["./mainpkg/test.pyx"]}]

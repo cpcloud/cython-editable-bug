@@ -9,4 +9,4 @@ version = "0.0.0"
 
 [tool.setuptools]
 ext-modules = [{name = "deppkg.test", sources = ["./deppkg/test.pyx"]}]
-package-data.deppkg = ["./deppkg/test.pxd"]
+package-data.deppkg = ["**/*.pxd"]

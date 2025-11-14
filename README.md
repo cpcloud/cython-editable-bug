@@ -13,6 +13,9 @@ curl -fsSL https://pixi.sh/install.sh | sh
 This must be installed in editable mode.
 
 ```
+# make sure nothing is lingering in the environment
+git clean -fdx
+
 cd deppkg
 pixi run pip install --editable .
 ```
@@ -29,7 +32,9 @@ pixi run python -c 'import deppkg'
 cd ../mainpkg
 
 # this should fail to find `deppkg/test.pxd` even though deppkg is installed and importable
-pixi run pip install .
+#
+# --no-build-isolation is there to match the arguments below
+pixi run pip install . --no-build-isolation
 ```
 
 ### Installing `deppkg` without `--editable` allows `mainpkg` to build successfully
@@ -44,5 +49,7 @@ pixi run pip uninstall -y mainpkg deppkg
 pixi run pip install .
 
 cd ../mainpkg
-pixi run pip install .
+# --no-build-isolation is necessary because `deppkg` is a build dependency
+# and of course not available on pypi
+pixi run pip install . --no-build-isolation
 ```
